@@ -1,0 +1,9 @@
+init,5s,none
+ping,1ms,noreference
+nslookup,1s,ping
+healthcheck,20s,nslookup
+task1,1m,healthcheck
+task2,2m,healthcheck
+task3,5m,healthcheck
+postanalysis,20s,task1 task2 task3 
+cleanup,2s,postanalysis

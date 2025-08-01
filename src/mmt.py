@@ -1,8 +1,9 @@
 import sys
 import os
+import threading
+import time
 
-import helpers.filehandler
-from helpers.parser import parse_args
+from helpers.parser import *
 
 
 def main():
@@ -21,8 +22,15 @@ def main():
     """
     
     print(intitial_message)
+    
+    #DEBUG tasks = load_file(args.file)
+    ordered_tasks, errors = validate_tasks(load_file(args.file))
 
-    print("Script Done")
+    #DEBUG print(ordered_tasks)
+    print(f"{len(errors)} Errors Found")
+    if len(errors) > 0:
+        print(errors)
+    print("-- Script Complete --")
 
 
 if __name__ == "__main__":

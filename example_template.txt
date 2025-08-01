@@ -1,2 +1,0 @@
-nslookup,1
-nslookup,1,none

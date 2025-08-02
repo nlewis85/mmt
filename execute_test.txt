@@ -1,0 +1,9 @@
+cd /tmp,5s,none
+ping 8.8.8.8,1ms,"cd /tmp"
+nslookup google.com,1s,"cd /tmp"
+ping google.com,20s,"ping 8.8.8.8" "nslookup google.com"
+curl google.com > test.txt,1m,"ping google.com"
+curl amazon.com,2m,"ping google.com"
+curl newegg.com,5m,"ping google.com"
+ls | grep test.txt,20s,"curl google.com > test.txt" "curl newegg.com" "curl amazon.com"
+rm test.txt,2s,"ls | grep test.txt"

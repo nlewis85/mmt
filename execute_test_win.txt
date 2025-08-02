@@ -1,0 +1,9 @@
+echo Hello Windows,1s,none
+ping 8.8.8.8,1ms,"echo Hello Windows"
+nslookup google.com,1s,"echo Hello Windows"
+ping google.com,20s,"ping 8.8.8.8" "nslookup google.com"
+curl google.com > test.txt,1m,"ping google.com"
+curl amazon.com,2m,"ping google.com"
+curl newegg.com,5m,"ping google.com"
+dir,20s,"curl google.com > test.txt" "curl newegg.com" "curl amazon.com"
+rm test.txt,2s,"dir"

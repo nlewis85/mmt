@@ -23,10 +23,14 @@ def main():
     
     print(intitial_message)
     
-    #DEBUG tasks = load_file(args.file)
-    ordered_tasks, errors = validate_tasks(load_file(args.file))
+    ordered_tasks, time, errors = validate_tasks(load_file(args.file), args.parallel)
 
-    #DEBUG print(ordered_tasks)
+    # Some Debug print messages
+    print(f"ordered_tasks:")
+    print(ordered_tasks)
+    print(f"time:")
+    print(time)
+
     print(f"{len(errors)} Errors Found")
     if len(errors) > 0:
         print(errors)

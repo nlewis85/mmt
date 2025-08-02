@@ -2,7 +2,7 @@ init,5s,none
 ping,1ms,init
 nslookup,1s,init
 healthcheck,20s,ping nslookup
-task1,1m,healthcheck
+task1,1m,postanalysis
 task2,2m,healthcheck
 task3,5m,healthcheck
 postanalysis,20s,task1 task2 task3 

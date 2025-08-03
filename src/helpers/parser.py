@@ -7,6 +7,7 @@ Module to parse parameters and arguments used in the script.
 """
 
 def parse_args():
+    """Parse CLI Arguements"""
     parser = argparse.ArgumentParser(
         description="""
         MMT - My Multitool
@@ -34,6 +35,13 @@ def parse_args():
     )
     
     parser.add_argument(
+        '--output', '-o',
+        type=str,
+        help='Specify output file path. Default is ./output_results.txt',
+        default="output_results.txt"
+    )
+    
+    parser.add_argument(
         '--parallel', '-p',
         help='Number of parallel tasks to run. Default is 3.',
         default=3,
@@ -55,12 +63,12 @@ def parse_args():
     return parsed_args
 
 def parse_line(line):
+    """Read lines from specified file and parse them for future use"""
     sections = line.strip().split(',')
     if len(sections) != 3:
         raise ValueError(f"""
         Expected format is 3 strings seperated by commas, like:\n
         ping 8.8.8.8,4s,none\n\n
-        
         {len(sections)}
         """)
     

@@ -1,0 +1,11 @@
+echo Hello Windows,1s,none
+ping 8.8.8.8,1ms,"echo Hello Windows"
+asdfasdfasdf,1s,"ping 8.8.8.8"
+nslookup google.com,1s,"echo Hello Windows"
+ping google.com,20s,"ping 8.8.8.8" "nslookup google.com"
+ping google.com > test.txt,1m,"ping google.com"
+ping amazon.com,2m,"ping google.com"
+ping newegg.com,5m,"ping google.com"
+ping ebay.com,30s,asdfasdfasdf
+dir,20s,"ping google.com > test.txt" "ping newegg.com" "ping amazon.com"
+rm test.txt,2s,"dir"

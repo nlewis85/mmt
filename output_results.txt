@@ -1,0 +1,97 @@
+
+-- MMT Execution Output --
+Execurtion Started at: 20:27:21
+Max Processes: 3
+
+
+                    
+---------- "cd /tmp" Execution Result ----------
+Output: 
+
+Error: No errors
+Duration: 0.02 seconds
+
+---------- "nslookup google.com" Execution Result ----------
+Output: Server:  RT-AX86U_Pro-DA88
+Address:  192.168.50.1
+
+Name:    google.com
+Addresses:  2607:f8b0:400a:800::200e
+	  142.250.73.142
+
+
+
+Error: No errors
+Duration: 0.06 seconds
+
+---------- "ping 8.8.8.8" Execution Result ----------
+Output: 
+Pinging 8.8.8.8 with 32 bytes of data:
+Reply from 8.8.8.8: bytes=32 time=12ms TTL=114
+Reply from 8.8.8.8: bytes=32 time=10ms TTL=114
+Reply from 8.8.8.8: bytes=32 time=10ms TTL=114
+Reply from 8.8.8.8: bytes=32 time=10ms TTL=114
+
+Ping statistics for 8.8.8.8:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 10ms, Maximum = 12ms, Average = 10ms
+
+
+Error: No errors
+Duration: 3.07 seconds
+
+---------- "ping google.com" Execution Result ----------
+Output: 
+Pinging google.com [142.250.73.142] with 32 bytes of data:
+Reply from 142.250.73.142: bytes=32 time=10ms TTL=113
+Reply from 142.250.73.142: bytes=32 time=10ms TTL=113
+Reply from 142.250.73.142: bytes=32 time=17ms TTL=113
+Reply from 142.250.73.142: bytes=32 time=9ms TTL=113
+
+Ping statistics for 142.250.73.142:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 9ms, Maximum = 17ms, Average = 11ms
+
+
+Error: No errors
+Duration: 3.06 seconds
+
+---------- "curl google.com > test.txt" Execution Result ----------
+Output: 
+
+Error: No errors
+Duration: 0.21 seconds
+
+---------- "curl newegg.com" Execution Result ----------
+Output: 
+
+Error: No errors
+Duration: 0.24 seconds
+
+---------- "curl amazon.com" Execution Result ----------
+Output: <html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>Server</center>
+</body>
+</html>
+
+
+Error: No errors
+Duration: 0.30 seconds
+
+---------- "ls | grep test.txt" Execution Result ----------
+Output: test.txt
+
+
+Error: No errors
+Duration: 0.12 seconds
+
+---------- "rm test.txt" Execution Result ----------
+Output: 
+
+Error: No errors
+Duration: 0.03 seconds

@@ -1,6 +1,8 @@
 from graphlib import TopologicalSorter
 
-""" Module for validations, ordering, and calculations of tasks"""
+""" 
+Module for validations, ordering, and calculations of tasks.
+"""
 
 def validate_tasks(tasks, processes):
     """ Validate and order tasks and dependencies"""
@@ -50,16 +52,18 @@ def validate_tasks(tasks, processes):
         return steps, 0, errors
     
 def calculate_expected_runtime(steps, processes):
-
+    """Calculate expected runtime based on steps and number of processes"""
     calculated_time = 0
-     
+    
     for step in steps:
         # Create list as long as there are processes
         task_duration_times = [int()] * processes
         
+        #Sorting tasks by duration, this allows for proper calculations
+        tasks_by_duration = sorted(step, key=lambda t: t['duration'], reverse=True)
+        
         # Iterate through list based on earliest duration
-        # This is how I intend to handle it on execution
-        for task in step:
+        for task in tasks_by_duration:
             earliest_thread = min(range(processes), key=lambda i: task_duration_times[i])
             task_duration_times[earliest_thread] += task['duration']
         
@@ -67,4 +71,4 @@ def calculate_expected_runtime(steps, processes):
             
         calculated_time += step_time
 
-    return calculated_time
+    return round(calculated_time, 4)

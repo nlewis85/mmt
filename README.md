@@ -24,11 +24,8 @@ Fields are defined as:
 A functional file would be:
 
 ```
-
 ping 8.8.8.8,1s,none
-
 curl amazon.com,500ms,ping 8.8.8.8
-
 ```
 
   
@@ -44,25 +41,15 @@ the moment is on graphlib which requires python 3.9.
 Accepted parameters:
 
 ```
-
   -h, --help            show this help message and exit
-
   --execute, -e         Execute the list of tasks from the specified file
-
   --dryrun, -d          Perform a dry run without executing any tasks
-
   --file FILE, -f FILE  Specify input file path. Default is ./template.txt
-
   --output OUTPUT, -o OUTPUT
-
                         Specify output file path. Default is ./output_results.txt
-
   --parallel PARALLEL, -p PARALLEL
-
                         Number of parallel tasks to run. Default is 3.
-
   --verbose, -v         Enable verbose logging
-
 ```
 
   
@@ -122,42 +109,24 @@ A break down of their usage is as follows:
 Normal successful execution:
 
 ```
-
 $ python src/mmt.py -e -f examples/example_test.txt
-
 ...
-
- ----- Execution Summary -----
-
-  
+ ----- Execution Summary -----
 
 * "cd /tmp" : -- Success
-
 * "nslookup google.com" : -- Success
-
 * "ping 8.8.8.8" : -- Success
-
 * "ping google.com" : -- Success
-
 * "curl google.com > test.txt" : -- Success
-
 * "curl newegg.com" : -- Success
-
 * "curl amazon.com" : -- Success
-
 * "ls | grep test.txt" : -- Success
-
 * "rm test.txt" : -- Success
 
-  
-  
 
-Total Execution Time: 6.5965
-
+Total Execution Time: 6.4466
 Expected Execution Time: 348.0
-
-Calculated execution time was 341.4035 more seconds than actual execution.
-
+Calculated execution time was 341.5534 more seconds than actual execution.
 ```
 
   
@@ -165,65 +134,35 @@ Calculated execution time was 341.4035 more seconds than actual execution.
 Dryrun Example:
 
 ```
-
 $ python src/mmt.py -d -f examples/normal_test.txt
 
-  
-
 -- Welcome to MMT (My MultiTool) --
-
 Mode: dryrun
-
 File: examples/normal_test.txt
-
 Verbosity: False
-
 Parallel Tasks: 3
-
 Output File: output_results.txt
 
-  
-
 Order of execution will be:
-
 Step 1:
-
-  - init
-
+  - init
 Step 2:
-
-  - ping
-
-  - nslookup
-
+  - ping
+  - nslookup
 Step 3:
-
-  - healthcheck
-
+  - healthcheck
 Step 4:
-
-  - task1
-
-  - task2
-
-  - task3
-
+  - task1
+  - task2
+  - task3
 Step 5:
-
-  - postanalysis
-
+  - postanalysis
 Step 6:
+  - cleanup
 
-  - cleanup
+ No errors in examples/normal_test.txt
 
-  
-
- No errors in examples/normal_test.txt
-
-  
-
- Estimated duration to complete tasks is: 348.0 seconds
-
+ Estimated duration to complete tasks is: 348.0 seconds
 ```
 
   
@@ -231,31 +170,18 @@ Step 6:
 Example of script not running tasks that where it has detected issues.
 
 ```
-
 $ python src/mmt.py --execute -f examples/broken_test_1.txt
 
-  
-
 -- Welcome to MMT (My MultiTool) --
-
 Mode: execute
-
 File: examples/broken_test_1.txt
-
 Verbosity: False
-
 Parallel Tasks: 3
-
 Output File: output_results.txt
 
-  
-
 -- FAILURE: 2 Errors Found --
-
 Error - Task 'init' depends on itself.
-
 Error - Dependency recursion found!
-
 ```
 
   

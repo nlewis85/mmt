@@ -32,9 +32,7 @@ curl amazon.com,500ms,ping 8.8.8.8
 
 ## Usage
 
-Testing and developement was completed on python 3.11.9, although the only known dependency at
-
-the moment is on graphlib which requires python 3.9.
+Testing and developement was completed on python 3.11.9, although the only known dependency at the moment is on graphlib which requires python 3.9.
 
   
 
@@ -57,9 +55,7 @@ Accepted parameters:
 **Execute Details**
 
 Execute will not run any commands if the file is determined to be invalid.
-
 Additionally, any commands with dependencies that have failed, will be skipped.
-
 Otherwise it will run the commands in order of the quickest way it can
 
   
@@ -67,10 +63,8 @@ Otherwise it will run the commands in order of the quickest way it can
 **Dryrun Details**
 
 Dryrun will validate your file formatting for you, as well as check for recursion or other issues.
-
 These same validations are done before execution, and if any fail the execution will not run.
 
-  
 
 **Parallel Details**
 
@@ -93,15 +87,10 @@ Included in the examples folder is a list of fails used for testing during devel
 A break down of their usage is as follows:
 
 1. broken_test_1.txt - A task that references itself as a dependency.
-
 2. broken_test_2.txt - A dependency that references a task that doesn't exist.
-
 3. broken_test_3.txt - Circular dependencies with "postanalysis" and "task1"
-
 4. execute_test_fail.txt - This has commands and dependencies that will pass all validations, but will fail to execute (Unless you have a script/alias in your path for "asdfasdfasdf"). This validates the script will not execute tasks that are have dependencies that failed.  
-
 5. execute_test.txt - This is a normal execution where everything runs as expected.
-
 6. normal_test.txt - This was used initially to verify validation and recursion checks. It doesn't really serve a use today but was kept as an example.
 
   
@@ -189,53 +178,30 @@ Error - Dependency recursion found!
 ## Other Potential Improvements and Thoughts
 
 * Pytest to test example test files as well as individual function tests
-
 * API Implementation
-
 * Formatting optimization and improvements
-
 * Revised and improved logging and debug logs
-
 * Optimization of existing python loops (Low priority unless we need to execute this script en mass or on very low capacity devices)
-
 * Support comparison per task of expected vs actual execution time
-
 * Related to the above, could support updating the file with new expected time
-
 * Bind tasks to a list of commands to be ran. For example right now we have:
-
 ```
-
 init,5s,none
-
 ping,1ms,init
-
 nslookup,1s,init
-
 ```
 
 We could have a seperate tasks.cfg file that binds those to actual commands to execute by the OS.
-
 ```
-
 init:
-
 -run some command
 
-  
-
 ping:
-
 -ping 8.8.8.8
-
 -ping 8.8.4.4
 
-  
-
 nslookup:
-
 -nslookup google.com
-
 ```
 
   
